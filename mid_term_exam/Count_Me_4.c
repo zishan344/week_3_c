@@ -2,20 +2,22 @@
 #include <string.h>
 int main()
 {
-   char s[10000];
-   char cr[26]={0};
-   scanf("%s", s);
-   for (int i = 0; i < strlen(s); i++)
+   char s[10001];
+  fgets(s, sizeof(s), stdin);
+   int cnt[26]={0};
+   for (int i = 0;s[i] != '\0'; i++)
    {
-   int value = s[i]-97;
-   cr[value]++;
+    if ('a' <= s[i] && s[i] <= 'z') { //  
+            cnt[s[i] - 'a']++;
+        }
    }
-   for (int i = 0; i < 26; i++)
-   {
-    if(cr[i]!=0){
-    printf("%c - %d\n",i+97, cr[i]);
+
+     for (int i = 0; i < 26; i++) {
+        if (cnt[i] != 0) {
+      printf("%c - %d\n", i + 'a', cnt[i]);
+        }
     }
-   }
+
    
    
   return 0;
